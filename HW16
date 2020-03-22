@@ -1,0 +1,60 @@
+#include <iostream>
+using namespace std;
+class vehicle
+{
+public:
+ int price();
+ int mpg();
+ vehicle(int now=4,int yer=2000);
+private:
+ int numberofwheels,year;
+};
+vehicle::vehicle(int now, int yer) {
+ numberofwheels=now;
+ year=yer;
+}
+int vehicle::mpg(){
+ return 2*numberofwheels-(year-2010);
+}
+int vehicle::price(){
+ return 2*mpg();
+}
+class car : public vehicle
+{
+public:
+ car(bool=true, int=12,int=4,int=2010);
+ int price();
+private:
+ bool airbag;
+ int sensornumbers;
+};
+car::car(bool ab,int sn, int now2,int yer2):vehicle(now2,yer2){
+ airbag=ab;
+ sensornumbers=sn;
+}
+int car::price() {
+ return mpg()+500*sensornumbers+800*airbag;
+}
+class Ford: public car{
+public:
+ int price();
+ Ford(string="Default", int=7,bool=true, int=12,int=4,int=2010);
+private:
+ string owner;
+ int series;
+};
+Ford::Ford(string ownerr, int serie, bool ab, int sn, int noww, int
+yerr):car(ab,sn,noww,yerr) {
+ owner=ownerr;
+ series=serie;
+}
+int Ford::price(){
+ return 1.5*series*(car::price());
+}
+int main()
+{
+ Ford f1("Danny",5,true,8,4,2012);
+cout<<"The current price for this Ford is: "<<f1.price();
+getchar();
+ return 0;
+}
