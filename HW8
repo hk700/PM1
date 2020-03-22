@@ -1,0 +1,19 @@
+#include <iostream>
+int main() {
+char kk[]="Michael";
+ int size=7;
+char f;
+ std::cin>>f;
+ int indx=100;
+ for(int i=0;i<size;i++){
+ if(kk[i]==f){
+ indx=i;
+ break;
+ }
+ }
+ for (int i=indx+1; i<size; i++)
+ kk[i-1] =kk[i];
+ for(int i=0;i<size-1;i++){
+ std::cout<<kk[i]<<"\n";
+ }
+}
