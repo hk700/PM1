@@ -1,0 +1,38 @@
+#include <iostream>
+using namespace std;
+class car
+{
+public:
+int mpg,year;
+ bool airbag;
+};
+class Ford : public car
+{
+public:
+ int getprice(){price=6000+100*mpg+(year-2000)+(airbag)*500; return price;}
+ void cartype() { cout << "This is a Ford!"<< endl; }
+private:
+ int price;
+};
+class Hyundai : public car
+{
+public:
+ int getprice(){price=4000+200*mpg+(year-2000)+(airbag)*800; return price;}
+ void cartype() { cout << "This is a Hyundai!"<< endl; }
+private:
+ int price;
+};
+int main()
+{
+Ford car1;
+ car1.mpg=20;
+ car1.airbag=true;
+ car1.year=2015;
+ Hyundai car2;
+ car2.mpg=100;
+ car2.airbag= false;
+ car2.year=2010;
+ cout<<car1.getprice()<<endl;
+ cout<<car2.getprice()<<endl;
+ return 0;
+}
