@@ -1,0 +1,34 @@
+Calculator.h
+#include <iostream>
+using namespace std;
+class calculator
+{
+private:
+ int int1;
+ int int2;
+public:
+ void getNumbers();
+ void Mult();
+};
+
+Calculator.cpp
+#include "calculator.h"
+void calculator::getNumbers(){
+ cout << "Enter int1: " ;
+ cin >> int1;
+ cout << "Enter int2: ";
+ cin >> int2;
+}
+void calculator::Mult(){
+ cout << int1*int2;
+}
+
+Main.cpp
+#include "calculator.h"
+int main()
+{
+ calculator cal1;
+ cal1.getNumbers();
+ cal1.Mult();
+ return 0;
+}
