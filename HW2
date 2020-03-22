@@ -1,0 +1,21 @@
+#include <iostream>
+int main() {
+char grade;
+ std::cin>>grade;
+ if((grade=='A')||(grade=='B')||(grade=='C')){
+ switch(grade){
+ case 'A':
+ std::cout<<"Percentage grade is between 94-100";
+ break;
+ case 'B':
+ std::cout<<"Percentage grade is between 84-86";
+ break;
+ case 'C':
+ std::cout<<"Percentage grade is between 74-76";
+ break;
+ }
+ }else{
+ std::cout<<"Input is not valid!";
+ }
+ return 0;
+}
