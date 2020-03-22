@@ -1,0 +1,23 @@
+#include <iostream>
+#include <time.h>
+int Game() {
+ int die1;
+ int die2;
+ die1 = 1 + rand() % 6;
+ die2 = 1 + rand() % 6;
+if (die1>die2) {
+ return 1;
+}else if (die2>die1){
+ return 2;
+}else{
+ return 0;
+
+}
+
+}
+int main() {
+
+ srand(time(NULL));
+ std::cout<<"Player number "<<Game()<<" is the winner!";
+ return 0;
+}
