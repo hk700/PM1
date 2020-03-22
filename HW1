@@ -1,0 +1,14 @@
+#include <iostream>
+int main() {
+ float a1;
+ float a2;
+ float mean;
+ std::cout<<"Input the first number:";
+ std::cin>>a1;
+ std::cout<<"Input the second number:";
+ std::cin>>a2;
+ mean=(a1+a2)/2;
+ std::cout<<"Mean of the numbers is ";
+ std::cout << mean << std::endl;
+ return 0;
+}
