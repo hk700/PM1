@@ -1,0 +1,18 @@
+#include <iostream>
+int main() {
+ int input;
+ std::cin>>input;
+ float dblfac=1;
+ for(int i=1; i<=input/2;i++){
+ dblfac=dblfac*(2*i);
+ }
+ std::cout<<"Using for loop, double factorial equals: "<<dblfac<<std::endl;
+ float dblfac2=1;
+ int inputclone=input;
+ while(inputclone>1){
+ dblfac2=dblfac2*inputclone;
+ inputclone=inputclone-2;
+ }
+ std::cout<<"Using while loop, double factorial equals: "<<dblfac2;
+ return 0;
+}
