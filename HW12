@@ -1,0 +1,60 @@
+student.h
+#include <iostream>
+#include <string>
+using namespace std;
+class student {
+private:
+ int age;
+ double gpa;
+ string name;
+public:
+ student(int,double,string);
+ int getage();
+ void setage(int);
+ double getgpa();
+ void setgpa(double);
+ string getname();
+ void setname(string);
+};
+student.cpp
+#include "student.h"
+student::student(int age1,double gpa1, string name1){
+ age=age1;
+ gpa=gpa1;
+ name=name1;
+}
+int student::getage(){
+ return age;
+}
+void student::setage(int agee){
+ age=agee;
+}
+double student::getgpa(){
+ return gpa;
+}
+void student::setgpa(double gpaa){
+ gpa=gpaa;
+}
+string student::getname(){
+ return name;
+}
+void student::setname(string namee){
+ name=namee;
+}
+Main.cpp
+#include "student.h"
+int main() {
+ student st1(19,3.8,"Jim");
+ student st2(28,3.7,"Kim");
+ cout<<st1.getname()<<endl;
+ cout<<st1.getage()<<endl;
+ cout<<st1.getgpa()<<endl;
+ cout<<st2.getname()<<endl;
+ cout<<st2.getage()<<endl;
+ cout<<st2.getgpa()<<endl;
+ st1=st2;
+ cout<<st1.getname()<<endl;
+ cout<<st1.getage()<<endl;
+ cout<<st1.getgpa()<<endl;
+ return 0;
+}
