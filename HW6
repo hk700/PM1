@@ -1,0 +1,16 @@
+#include <iostream>
+using namespace std;
+int main() {
+ int ints[5];
+ for(int i=0;i<5;i++){
+ cin>>ints[i];
+ }
+ int max=0;
+ for(int i=0;i<5;i++){
+ if(ints[i]>max){
+ max=ints[i];
+ }
+ }
+ cout<<"Max of the array is "<<max;
+ return 0;
+}
