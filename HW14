@@ -1,0 +1,85 @@
+matrix.h
+#include <iostream>
+using namespace std;
+ class matrix
+ {
+ friend ostream &operator<<( ostream &, const matrix & );
+ public:
+ matrix( int = 10,int =10 ); // default constructor
+ matrix( const matrix & ); // copy constructor
+ int getrow() const;
+ const matrix &operator=( const matrix & ); // assignment operator
+ int getcolumn() const;
+ private:
+ int row;
+ int column;
+ int **ptr;
+ };
+matrix.cpp
+#include "matrix.h"
+ matrix::matrix( int roww,int columnn )
+ {
+ row=roww;
+ column=columnn;
+ ptr = new int*[roww];
+ for(int i = 0; i < roww; i++)
+ ptr[i] = new int[columnn];
+ for(int i = 0; i < roww; i++){
+ for(int j = 0; j < columnn; j++){
+ ptr[i][j] = 0;
+ }
+ }
+ }
+ matrix::matrix( const matrix &arrayToCopy )
+ {
+ row=arrayToCopy.row;
+ column=arrayToCopy.column;
+ ptr = new int*[row];
+ for(int i = 0; i < row; i++) {
+ ptr[i] = new int[column];
+ }
+ for(int i = 0; i < row; i++){
+ for(int j = 0; j < column; j++){
+ ptr[i][j] = arrayToCopy.ptr[i][j];
+ }
+ }
+ }
+ int matrix::getrow() const
+ {
+ return row;
+ }
+ int matrix::getcolumn() const
+ {
+ return column;
+ }
+ const matrix &matrix::operator=( const matrix &right )
+ {
+ if ( &right != this )
+ {
+ for(int i = 0; i < row; i++){
+ for(int j = 0; j < column; j++){
+ ptr[i][j] = right.ptr[i][j];
+ }
+ }
+ }
+ return *this;
+}
+ ostream &operator<<( ostream &output, const matrix &a )
+ {
+ for(int i = 0; i < a.getrow(); i++){
+ for(int j = 0; j < a.getcolumn(); j++){
+ output<<a.ptr[i][j]<<"\t";
+ }
+ output<<"\n";
+ }
+ return output;
+ }
+Main.cpp
+#include "matrix.h"
+int main() {
+ matrix m1(6,6);
+ matrix m2(6,6);
+ m1=m2;
+ cout<<m1;
+ return 0;
+}
